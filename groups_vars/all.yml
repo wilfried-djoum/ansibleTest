@@ -1,0 +1,2 @@
+vault_addr: "http://51.21.198.45:8200"
+vault_token: "{{lookup('env', 'VAULT_TOKEN')}}"

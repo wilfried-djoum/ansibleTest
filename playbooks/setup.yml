@@ -1,0 +1,12 @@
+- name: Test Vault + Ansible
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Lire secret Vault
+      set_fact:
+        my_secret: "{{lookup('community.hashi_vault.hashi_vault', 'secret=secret/data/dev/db token' + vault_token + 'url=' + vault_addr)}}"
+
+    - name: Afficher les secrets
+      debug:
+        msg: "username = {{my_secret.data.userame}}"
