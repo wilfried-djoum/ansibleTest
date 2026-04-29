@@ -1,0 +1,28 @@
+name: Ansible Vault Test
+
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.11"
+
+            - name: Install Ansible
+              run: |
+                  pip install ansible hvac
+                  ansible-galaxy collection install community.hashi_vault
+            - name: Run Playbook
+              env:
+                  VAULT_TOKEN: ${{secrets.VAULT_TOKEN}}
+              run: |
+                  ansible-playbook plabooks/setup.yml
