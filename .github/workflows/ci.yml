@@ -25,4 +25,4 @@ jobs:
               env:
                   VAULT_TOKEN: ${{secrets.VAULT_TOKEN}}
               run: |
-                  ansible-playbook plabooks/setup.yml
+                  ansible-playbook playbooks/setup.yml
