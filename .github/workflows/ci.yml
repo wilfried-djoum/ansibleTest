@@ -1,12 +1,12 @@
 name: Ansible Vault Test
-# mise a jour de la syntaxe pour les actions github
 
 on:
     push:
         branches: [ main ]
 
 jobs:
-    test:
+    Test-Vault:
+        name: Test Vault + Ansible
         runs-on: ubuntu-latest
 
         steps:
