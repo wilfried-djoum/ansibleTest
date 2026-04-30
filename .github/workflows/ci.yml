@@ -25,5 +25,6 @@ jobs:
             - name: Run Playbook
               env:
                   VAULT_TOKEN: ${{secrets.VAULT_TOKEN}}
+                  VAULT_ADDR: ${{secrets.VAULT_ADDR}}
               run: |
                   ansible-playbook playbooks/setup.yml
