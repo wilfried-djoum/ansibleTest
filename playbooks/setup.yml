@@ -13,4 +13,4 @@
 
     - name: Afficher les secrets
       debug:
-        msg: "username = {{my_secret.data.username}}"
+        msg: "username = {{my_secret.username}}"
