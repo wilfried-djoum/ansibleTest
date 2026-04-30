@@ -9,7 +9,7 @@
         vault_addr: "{{ lookup('env', 'VAULT_ADDR') }}"
     - name: Lire secret Vault
       set_fact:
-        my_secret: "{{ lookup('community.hashi_vault.hashi_vault', 'secret = secret/dev/db', token=vault_token, url=vault_addr) }}"
+        my_secret: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=secret/dev/db', token=vault_token, url=vault_addr) }}"
 
     - name: Afficher les secrets
       debug:
