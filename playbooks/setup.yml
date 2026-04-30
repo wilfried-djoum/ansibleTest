@@ -6,6 +6,7 @@
     - name: Charger le token vault depuis les variables d'environnement
       set_fact:
         vault_token: "{{ lookup('env', 'VAULT_TOKEN') }}"
+        vault_addr: "{{ lookup('env', 'VAULT_ADDR') }}"
     - name: Lire secret Vault
       set_fact:
         my_secret: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=secret/data/dev/db token=' ~ vault_token ~ ' url=' ~ vault_addr) }}"
