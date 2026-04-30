@@ -27,4 +27,6 @@ jobs:
                   VAULT_TOKEN: ${{secrets.VAULT_TOKEN}}
                   VAULT_ADDR: ${{secrets.VAULT_ADDR}}
               run: |
-                  ansible-playbook playbooks/setup.yml
+                  test -n "$VAULT_ADDR" || (echo "VAULT_ADDR vide"; exit 1)
+                     test -n "$VAULT_TOKEN" || (echo "VAULT_TOKEN vide"; exit 1)
+                   ansible-playbook playbooks/setup.yml
