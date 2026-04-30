@@ -1,4 +1,5 @@
 name: Ansible Vault Test
+# mise a jour de la syntaxe pour les actions github
 
 on:
     push:
